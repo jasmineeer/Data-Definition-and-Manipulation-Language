@@ -1,0 +1,34 @@
+// 1. Tuliskan pernyataan SQL untuk membuat tabel daftar_pegawai dengan isi tabel seperti di bawah ini : //
+
+MariaDB [(none)]> create database praktikum2_DDLDML;
+MariaDB [(none)]> use praktikum2_DDLDML;
+
+MariaDB [praktikum2_DDLDML]> create table daftar_pegawai (
+    -> id_pegawai int(3),
+    -> nama varchar(20),
+    -> jk varchar(5),
+    -> th_masuk int(5),
+    -> alamat varchar(20)
+    -> );
+
+MariaDB [praktikum2_DDLDML]> insert into daftar_pegawai values
+    -> ("123","Muhammad Cahyo","L","2012","Malang"),
+    -> ("124","Dewi Kusuma","P","2010","Kediri"),
+    -> ("125","Rafif Daniswara","L","2013","Pasuruan"),
+    -> ("126","Muhammad Alfian","L","2009","Malang"),
+    -> ("127","Fitriani Ari","P","2010","Surabaya"),
+    -> ("128","Rizal Abidin","L","2012","Malang");
+
+MariaDB [praktikum2_DDLDML]> select * from daftar_pegawai;
+
+// 2. Tuliskan pernyataan SQL untuk mendapatkan data pegawai yang tinggal di Malang dan berjenis kelamin laki - laki! //
+
+MariaDB [praktikum2_DDLDML]> select * from daftar_pegawai where jk = "L" and alamat = "Malang";
+
+// 3. Tuliskan pernyataan SQL untuk mendapatkan data pegawai yang berjenis kelamin laki - laki yang masuk pada tahun diatas 2010 dan urutkan berdasarkan tahun terbesar!//
+
+MariaDB [praktikum2_DDLDML]> select nama, th_masuk from daftar_pegawai where jk = "L" and th_masuk > 2010;
+
+// 4. Tuliskanlah pernyataan SQL untuk mendapatkan data pegawai yang masuk sebelum tahun 2012 dan tinggal di Malang!//
+
+MariaDB [praktikum2_DDLDML]> select * from daftar pegawai where alamat = "Malang" and th_masuk < 2010;

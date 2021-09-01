@@ -1,0 +1,38 @@
+// 1. Tuliskan pernyataan SQL untuk menciptakan tabel dengan nama tabel barang dengan deskripsi di bawah ini!//
+
+MariaDB [(none)]> create database praktikum1;
+MariaDB [(none)]> use praktikum1;
+
+MariaDB [praktikum1]> create table barang (
+    -> id_barang int(8),
+    -> nama_barang varchar(20),
+    -> harga int(11),
+    -> primary key (id_barang)
+    -> );
+
+MariaDB [praktikum1]> desc barang;
+
+// 2. Tuliskan pernyataan SQL untuk mendapatkan data matakuliah dari tabel matakuliah yang jumlah sksnya 4 atau 1!//
+
+MariaDB [praktikum1]> create table matakuliah (
+    -> kode_mk char(12),
+    -> nama_mk varchar(60),
+    -> sks int(1),
+    -> semester int(1),
+    -> primary key (kode_mk)
+    -> );
+
+MariaDB [praktikum1]> insert into matakuliah values
+    -> ("PTI447","Praktikum Basis Data","1","3"),
+    -> ("TIK342","Praktikum Basis Data","1","3"),
+    -> ("PTI333","Basis Data Terdistribusi","3","5"),
+    -> ("TIK123","Jaringan Komputer","2","5"),
+    -> ("TIK333","Sistem Operasi","3","5"),
+    -> ("PTI123","Grafika Komputer","3","5"),
+    -> ("PTI777","Sistem Informasi","2","3");
+
+MariaDB [praktikum1]> select * from matakuliah where sks = 1 or sks = 4;
+
+// 3. Tuliskan pernyataan SQL untuk mendapatkan data matakuliah dari tabel matakuliah yang nama depannya tidak sama dengan "Praktikum" dan sksnya 3!//
+
+MariaDB [praktikum1]> select * from matakuliah where nama_mk not like "Praktikum" and sks = 3;
